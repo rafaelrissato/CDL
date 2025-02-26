@@ -33,11 +33,11 @@
                     </tr>
                     <tr>
                         <td>Custo Cartao</td>
-                        <td class="font-weight-bold">{{real($produto->taxa['ifood'])}}</td>
+                        <td class="font-weight-bold">{{real($produto->taxa['direto'])}}</td>
                     </tr>
                     <tr>
                         <td>Custo ifood</td>
-                        <td class="font-weight-bold">{{real($produto->taxa['direto'])}}</td>
+                        <td class="font-weight-bold">{{real($produto->taxa['online'])}}</td>
                     </tr>
                     <tr>
                         <td>Lucro de venda</td>
@@ -45,7 +45,7 @@
                     </tr>
                     <tr>
                         <td>Lucro de venda ifood</td>
-                        <td class="font-weight-bold">{{real(($produto->preco->online - $produto->custo->valor) - $produto->taxa['ifood'])}}</td>
+                        <td class="font-weight-bold">{{real(($produto->preco->online - $produto->custo->valor) - $produto->taxa['online'])}}</td>
                     </tr>
             </tbody>
         </table>

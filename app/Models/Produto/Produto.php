@@ -45,7 +45,7 @@ class Produto extends Model
         return $custos->first();
     }
     public function getTaxaAttribute(){
-        $dados['ifood'] = ($this->preco->online * 0.18) ;
+        $dados['online'] = ($this->preco->online * 0.20) ;
         $dados['direto'] = ($this->preco->direto * 0.04) ;
         return $dados;
     }
