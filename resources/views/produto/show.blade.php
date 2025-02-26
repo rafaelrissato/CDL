@@ -12,11 +12,11 @@
 
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-lg-4">
             <livewire:prd.LwShow filtro='{{$produto->id}}' />
 
         </div>
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
             @if ($produto->composicaofilho->count() != 0)
             <livewire:prd.LwPaiList filtro='{{$produto->id}}' />
             @endif
