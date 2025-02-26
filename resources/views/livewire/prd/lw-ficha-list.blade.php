@@ -20,7 +20,7 @@
                 @foreach ($produto->composicao as $ficha)
                  <tr>
                       <td>{!! $ficha->produto->link !!}</td>
-                      <td>{{$ficha->produto->categoria->name}}</td>
+                      <td wire:click="edit('{{$ficha->produto->id}}')">{{$ficha->produto->categoria->name}}</td>
                       <td>{{$ficha->quantidade}}</td>
                       <td>{{real($ficha->valor)}}</td>
                       <td>{{percentual($ficha->valor,$produto->custo->valor)}}</td>
@@ -32,7 +32,7 @@
                         <select class="form-control form-control-sm"wire:change="change" wire:model="filho">
                             <option value="">Selecione</option>
                             @foreach ($produtos as $produto)
-                                <option value="{{$produto->id}}">{{$produto->name}}</option>
+                                <option value="{{$produto->id}}">{{$produto->categoria->name.' - '.$produto->name}}</option>
                             @endforeach
                         </select>
                     </td>

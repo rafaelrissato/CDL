@@ -27,7 +27,7 @@ class LwProdutoCreate extends Component
             'categoria' => 'required',
         ]);
         $prd = new Produto();
-        $prd->name = $this->name;
+        $prd->name = ucfirst(strtolower($this->name));
         $prd->categoria_id = $this->categoria;
         $prd->save();
 
@@ -40,6 +40,6 @@ class LwProdutoCreate extends Component
         $conf = new PrdConf();
         $conf->produto_id = $prd->id;
         $conf->save();
-        redirect('produto/'.$prd->id.'/show');
+        $this->name = '';
     }
 }

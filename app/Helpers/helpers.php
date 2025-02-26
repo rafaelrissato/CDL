@@ -38,7 +38,12 @@ function updatecusto($id, $tipo = 3){
 }
 function percentual($valor, $total)
 {
+    if($total == 0){
+        return '0 %';
+    }else{
     $percentual = ($valor / $total) * 100;
     return number_format($percentual, 0, '.', ',') . ' %';
+    }
+
 }
 

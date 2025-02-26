@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('pai_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->string('filho_id');
             $table->foreign('filho_id')->references('id')->on('produtos')->onDelete('cascade');
+            $table->string('quantidade');
             $table->timestamps();
         });
 

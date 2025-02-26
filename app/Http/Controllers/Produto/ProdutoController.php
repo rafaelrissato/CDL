@@ -4,6 +4,7 @@ namespace App\Http\Controllers\produto;
 
 use App\Http\Controllers\Controller;
 use App\Models\Produto\Produto;
+use App\Models\Produto\PrdComposicao;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -29,5 +30,19 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
         return view('produto.conf', compact('produto'));
+    }
+    public function clone($id,$pai)
+    {
+
+        $produto = Produto::find($pai);
+        foreach ($produto->composicao as $composicao) {
+            $novo = new PrdComposicao();
+            $novo->pai_id = $id;
+            $novo->filho_id = $composicao->filho_id;
+            $novo->quantidade = $composicao->quantidade;
+            $novo->save();
+        }
+        updatecusto($pai, 3);
+        return redirect()->route('prd.show', $pai);
     }
 }

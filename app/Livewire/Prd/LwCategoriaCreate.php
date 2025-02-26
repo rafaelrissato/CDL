@@ -21,7 +21,7 @@ class LwCategoriaCreate extends Component
             'tipo' => 'required',
         ]);
         $categoria = new PrdCategoria();
-        $categoria->name = $this->name;
+        $categoria->name = ucfirst(strtolower($this->name));
         $categoria->tipo = $this->tipo;
         $categoria->calculo = $this->calculo;
         $categoria->save();

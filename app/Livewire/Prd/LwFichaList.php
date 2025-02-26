@@ -59,4 +59,8 @@ class LwFichaList extends Component
         $pr = Produto::find($this->filho);
         $this->quantidade = $pr->conf->padraoFicha;
     }
+    public function edit($id)
+    {
+        $this->filho = $id;
+    }
 }

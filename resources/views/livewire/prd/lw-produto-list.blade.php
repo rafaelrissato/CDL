@@ -10,6 +10,11 @@
                         <a href="/produto/create/{{Request::segment(3)}}/" class="btn btn-default">
                             <i class="fas fa-plus"></i>
                         </a>
+                        @if($categoriafiltro)
+                        <a href="#" class="btn btn-default" wire:click="filtros('')">
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -20,7 +25,12 @@
                     <tr>
                         <th>Produto</th>
                         <th>Categoria</th>
+                        @if ($filtro = 'cardapio')
                         <th>Custo</th>
+                        <th>Venda</th>
+                        <th>Lucro</th>
+                        @endif
+
                         <th>Date</th>
                     </tr>
                 </thead>
@@ -28,13 +38,18 @@
                     @foreach($produtos as $produto)
                         <tr>
                             <td>{!! $produto->link !!}</td>
-                            <td>{{$produto->categoria->name}}</td>
-                            <td>{{real($produto->custo->valor)}}</td>
+                            <td wire:click="filtros('{{$produto->categoria->id}}')">{{$produto->categoria->name}}</td>
+                            @if($filtro = 'cardapio')
+                                <td>{{real($produto->custo->valor)}}</td>
+                                <td>{{real($produto->preco->online)}}</td>
+                                <td>{{real($produto->preco->online - $produto->custo->valor )}}</td>
+                                @endif
                             <td>{{$produto->created_at->format('d-m-Y')}}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>

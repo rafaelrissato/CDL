@@ -28,6 +28,7 @@ Route::prefix('/produto')->name('prd')->group(function () {
         Route::get('/categoria', 'categoria')->name('.categoria');
         Route::get('/create/{tipo}', 'create')->name('.create');
         Route::get('/{id}/show', 'show')->name('.show');
+        Route::get('/{id}/show/{pai}', 'clone')->name('.clone');
         Route::get('/{id}/conf', 'conf')->name('.conf');
 
 
