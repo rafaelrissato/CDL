@@ -49,4 +49,8 @@ class Produto extends Model
         $dados['direto'] = ($this->preco->direto * 0.04) ;
         return $dados;
     }
+    public function getComboAttribute(){
+        $valo = $this->composicao->sum('venda');
+        return $valo;
+    }
 }

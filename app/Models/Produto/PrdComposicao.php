@@ -22,5 +22,9 @@ class PrdComposicao extends Model
        $valor = $this->produto->custo->valor * $this->quantidade;
        return $valor;
     }
+    public function getVendaAttribute(){
+        $valor = $this->produto->preco->online;
+        return $valor;
+     }
 
 }

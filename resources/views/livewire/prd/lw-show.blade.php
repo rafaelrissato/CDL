@@ -7,7 +7,13 @@
       <p class="text-muted text-center">{{$produto->categoria->name}}</p>
       <div class="card-body table-responsive p-0">
         <table id="produto" class="table table-sm table-hover text-nowrap">
-            <tbody
+            <tbody>
+                @if($produto->categoria->calculo == 3)
+            <tr>
+                <td> DE {{real($produto->combo)}}</td>
+                <td class="font-weight-bold">Por {{real($produto->preco->online)}}</td>
+                @endif
+            </tr>
                     <tr>
                         <td>Preço de venda</td>
                         <td class="font-weight-bold">{{real($produto->preco->direto)}}</td>
