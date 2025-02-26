@@ -21,7 +21,7 @@
                  <tr>
                       <td>{!! $ficha->produto->link !!}</td>
                       <td wire:click="edit('{{$ficha->produto->id}}')">{{$ficha->produto->categoria->name}}</td>
-                      <td>{{$ficha->quantidade}}</td>
+                      <td>{{$ficha->quantidade.' - '. $ficha->produto->conf->medida}}</td>
                       <td>{{real($ficha->valor)}}</td>
                       <td>{{percentual($ficha->valor,$produto->custo->valor)}}</td>
                       <td><x-adminlte-button class="btn-sm btn-outline-danger" type="button" label="Delete" wire:click="delete('{{$ficha->id}}')" /></td>
