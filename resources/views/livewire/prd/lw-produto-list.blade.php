@@ -21,14 +21,15 @@
         </div>
         <div class="card-body table-responsive p-0">
             <table id="produto" class="table table-sm table-hover text-nowrap">
+
                 <thead>
                     <tr>
                         <th>Produto</th>
                         <th>Categoria</th>
-                        @if ($filtro = 'cardapio')
+                        @if($filtro == 'cardapio')
                         <th>Custo</th>
                         <th>Venda</th>
-                        <th>Lucro</th>
+                        <th>Lucros</th>
                         @endif
 
                         <th>Date</th>
@@ -39,7 +40,7 @@
                         <tr>
                             <td>{!! $produto->link !!}</td>
                             <td wire:click="filtros('{{$produto->categoria->id}}')">{{$produto->categoria->name}}</td>
-                            @if($filtro = 'cardapio')
+                            @if($filtro == 'cardapio')
                                 <td>{{real($produto->custo->valor)}}</td>
                                 <td>{{real($produto->preco->online)}}</td>
                                 <td>{{real($produto->preco->online - $produto->custo->valor )}}</td>

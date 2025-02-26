@@ -14,6 +14,7 @@
                         <option value="Cardapio">Cardapio</option>
                         <option value="Insumo">Insumo</option>
                         <option value="Combo">Combo</option>
+                        <option value="Complemento">Complemento</option>
                     </x-adminlte-select>
                     <x-adminlte-select name="tipo" label="Calculo de custo" wire:model="calculo">
                         <option value=""></option>

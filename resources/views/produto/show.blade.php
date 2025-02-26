@@ -21,6 +21,9 @@
             <livewire:prd.LwPaiList filtro='{{$produto->id}}' />
             @endif
             @if ($produto->categoria->calculo == 2)
+            <livewire:prd.LwFichaList filtro='{{$produto->id}}'/>
+            @endif
+            @if ($produto->categoria->calculo == 3)
             <livewire:prd.LwFichaList filtro='{{$produto->id}}' />
             @endif
             <livewire:prd.LwCustoList filtro='{{$produto->id}}' />

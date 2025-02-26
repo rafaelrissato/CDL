@@ -20,9 +20,15 @@ class LwFichaList extends Component
     {
         $this->produto = Produto::find($this->filtro);
         $this->fichavalor = $this->produto->composicao->sum('valor');
+        if($this->produto->categoria->tipo == 'Cardapio'){
+            $this->produtos = Produto::whereHas('categoria', function (Builder $query) {
+                $query->where('tipo', 'Insumo');
+             })->get();
+        }else{
         $this->produtos = Produto::whereHas('categoria', function (Builder $query) {
-            $query->where('tipo', 'Insumo');
+            $query->where('tipo', 'Cardapio');
          })->get();
+        }
         return view('livewire.prd.lw-ficha-list');
     }
     public function store()

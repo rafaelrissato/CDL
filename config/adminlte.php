@@ -328,6 +328,14 @@ return [
                     'url' => 'produto/list/insumo',
                 ],
                 [
+                    'text' => 'Combo',
+                    'url' => 'produto/list/combo',
+                ],
+                [
+                    'text' => 'Complemento',
+                    'url' => 'produto/list/complemento',
+                ],
+                [
                     'text' => 'Categoria',
                     'url' => 'produto/categoria',
                 ],

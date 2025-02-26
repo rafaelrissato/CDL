@@ -44,4 +44,9 @@ class Produto extends Model
         $custos = $this->custos->sortByDesc('created_at');
         return $custos->first();
     }
+    public function getTaxaAttribute(){
+        $dados['ifood'] = ($this->preco->online * 0.18) ;
+        $dados['direto'] = ($this->preco->direto * 0.04) ;
+        return $dados;
+    }
 }
