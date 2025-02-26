@@ -12,7 +12,7 @@
 
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-6 col-sm-12">
             <livewire:prd.LwConf filtro='{{ucfirst(Request::segment(2))}}' />
         </div>
 
