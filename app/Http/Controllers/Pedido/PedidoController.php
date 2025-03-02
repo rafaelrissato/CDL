@@ -26,9 +26,9 @@ class PedidoController extends Controller
                     $pedido = new Pedido;
                 }
                 $pedido->codigo = $row[0];
-                $pedido->desconto = $row[9];
-                $pedido->entrega = $row[10];
-                $pedido->valor = $row[8];
+                $pedido->desconto = $row[8];
+                $pedido->entrega = $row[9];
+                $pedido->valor = $row[10];
                 $pedido->origem = $row[7];
                 $pedido->data = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[1]));;
                 $pedido->save();
