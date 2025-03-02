@@ -14,6 +14,11 @@
                 <td class="font-weight-bold">Por {{real($produto->preco->online)}}</td>
                 @endif
             </tr>
+            <tr>
+                <td>Quandidade de saida</td>
+                <td class="font-weight-bold">{{$produto->saidames->sum('quantidade')}}</td>
+
+            </tr>
                     <tr>
                         <td>Preço de venda</td>
                         <td class="font-weight-bold">{{real($produto->preco->direto)}}</td>

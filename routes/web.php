@@ -26,10 +26,21 @@ Route::prefix('/produto')->name('prd')->group(function () {
     Route::controller('App\Http\Controllers\Produto\ProdutoController')->group(function () {
         Route::get('/list/{tipo}', 'index')->name('.home');
         Route::get('/categoria', 'categoria')->name('.categoria');
+        Route::get('/copila', 'copila')->name('.copila');
         Route::get('/create/{tipo}', 'create')->name('.create');
         Route::get('/{id}/show', 'show')->name('.show');
         Route::get('/{id}/show/{pai}', 'clone')->name('.clone');
         Route::get('/{id}/conf', 'conf')->name('.conf');
+        Route::get('/import', 'import')->name('.import');
+
+
+
+    });
+});
+Route::prefix('/pedido')->name('ped')->group(function () {
+
+    Route::controller('App\Http\Controllers\Pedido\PedidoController')->group(function () {
+        Route::get('/import', 'import')->name('.import');
 
 
 

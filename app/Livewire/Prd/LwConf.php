@@ -14,6 +14,7 @@ class LwConf extends Component
     public $padraoFicha;
     public $padraoCompra;
     public $medida;
+    public $pdv;
     public function render()
     {
         $this->produto = Produto::find($this->filtro);
@@ -23,6 +24,7 @@ class LwConf extends Component
         $this->padraoCompra = $this->produto->conf->padraoCompra;
         $this->padraoFicha = $this->produto->conf->padraoFicha;
         $this->medida = $this->produto->conf->medida;
+        $this->pdv = $this->produto->conf->PDV;
 
         return view('livewire.prd.lw-conf');
     }
@@ -35,6 +37,7 @@ class LwConf extends Component
         $this->produto->conf->padraoCompra = quantidade($this->padraoCompra);
         $this->produto->conf->padraoFicha = quantidade($this->padraoFicha);
         $this->produto->conf->medida = $this->medida;
+        $this->produto->conf->PDV = $this->pdv;
         $this->produto->conf->save();
         $this->dispatch('alert', text: 'Configuraçao do produto atualizado com sucesso', icon: 'success');
 

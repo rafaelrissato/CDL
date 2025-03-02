@@ -27,6 +27,7 @@
             <livewire:prd.LwFichaList filtro='{{$produto->id}}' />
             @endif
             <livewire:prd.LwCustoList filtro='{{$produto->id}}' />
+            <livewire:prd.LwSaidas filtro='{{$produto->id}}' />
 
 
         </div>

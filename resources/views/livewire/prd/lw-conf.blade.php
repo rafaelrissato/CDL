@@ -57,7 +57,14 @@
                         <x-adminlte-input name='valor' type="text" wire:model="medida" />
                     </td>
 
+                </tr>
+                <tr>
+                    <td>Codigo</td>
+                    <td>
+                        <x-adminlte-input name='valor' type="text" wire:model="pdv" />
+                    </td>
 
+                </tr>
             </tbody>
         </table>
         <div class="p-3">

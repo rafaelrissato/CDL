@@ -35,6 +35,14 @@ class Produto extends Model
     {
         return $this->hasMany(PrdCusto::class, 'produto_id', 'id');
     }
+    public function saida() : HasMany
+    {
+        return $this->hasMany(PrdSaida::class, 'produto_id', 'id');
+    }
+    public function saidames() : HasMany
+    {
+        return $this->hasMany(PrdSaidaCopilado::class, 'produto_id', 'id');
+    }
     public function getLinkAttribute(){
         $link = '<a href="/produto/'.$this->id.'/show" class="text-decoration-none text-white font-weight-bold">'.ucfirst($this->name).'<a/>';
         return $link;
@@ -53,4 +61,5 @@ class Produto extends Model
         $valo = $this->composicao->sum('venda');
         return $valo;
     }
+
 }

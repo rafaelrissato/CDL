@@ -2,6 +2,11 @@
 
 use App\Models\Produto\Produto;
 use App\Models\Produto\PrdCusto;
+use App\Models\Produto\PrdConf;
+use App\Models\Produto\PrdCategoria;
+use App\Models\Produto\PrdPreco;
+use App\Models\Produto\PrdSaidaCopilado;
+use App\Models\Pedido\Pedido;
 use Illuminate\Database\Eloquent\Builder;
 
 
@@ -46,4 +51,79 @@ function percentual($valor, $total)
     }
 
 }
+function idproduto($filtro,$row)
+{
+    $produto = PrdConf::where('PDV', $filtro)->first();
+    if($produto){
+        return $produto->produto_id;
+    }else{
+        $produto = new Produto();
+        $produto->name = ucfirst(strtolower($row[5]));
+        $produto->categoria_id = idcategoria($row[7]);
+        $produto->save();
+        $custo = new PrdCusto();
+        $custo->produto_id = $produto->id;
+        $custo->save();
+        $preco = new PrdPreco();
+        $preco->produto_id = $produto->id;
+        $preco->save();
+        $conf = new PrdConf();
+        $conf->produto_id = $produto->id;
+        $conf->PDV = $filtro;
+        $conf->save();
+        return $produto->id;
+    }
 
+}
+function idcategoria($filtro)
+{
+    $cate = PrdCategoria::where('name', $filtro)->first();
+    if($cate){
+        return $cate->id;
+    }else{
+        $categoria = new PrdCategoria();
+        $categoria->name = ucfirst(strtolower($filtro));
+        if($filtro == 'Complemento'){
+            $categoria->tipo = 'Complemento';
+
+        }else{
+            $categoria->tipo = 'Cardapio';
+
+        }
+        $categoria->calculo = 1;
+        $categoria->save();
+        return $categoria->id;
+    }
+
+}
+function idpedido($filtro)
+{
+    $pedido = Pedido::where('codigo', $filtro)->first();
+    return $pedido->id;
+
+}
+function copilaProduto($id,$quantidade,$ano,$mes)
+{
+     $produto = Produto::find($id);
+
+     if($produto->categoria->calculo == 1){
+        $novo = new PrdSaidaCopilado;
+        $novo->produto_id = $id;
+        $novo->quantidade = $quantidade;
+        $novo->mes = $mes;
+        $novo->ano = $ano;
+        $novo->save();
+     }else{
+        foreach($produto->composicao as $composicao)
+        {
+            $novo = new PrdSaidaCopilado;
+            $novo->produto_id = $id;
+            $novo->quantidade = $quantidade;
+            $novo->mes = $mes;
+            $novo->ano = $ano;
+            $novo->save();
+            copilaProduto($composicao->produto->id,($quantidade * $composicao->quantidade),$ano,$mes);
+        }
+     }
+
+}
