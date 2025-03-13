@@ -3,7 +3,9 @@
 @section('title', 'Organizaçoes')
 
 @section('content_header')
-    <h1>Produto - {{$produto->name}} </h1>
+<div class="row">
+
+</div>
 @stop
 
 @section('content')
@@ -12,6 +14,31 @@
 
 
     <div class="row">
+        <div class="col-12">
+            <div class="card">
+
+                    <div class="card-header">
+                    <h3 class="card-title">
+                        <font style="vertical-align: inherit;"> {{$produto->name}}</font>
+                    </h3>
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-append">
+                                        <a href="{{route('prd.home',$produto->categoria->tipo)}}" class="btn btn-default">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </a>
+                                        <a href="{{route('prd.conf', $produto->id)}}" class="btn btn-default">
+                                            <i class="fa-solid fa-gears"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <livewire:prd.LwGrafico filtro='{{$produto->id}}' />
+        </div>
         <div class="col-12 col-lg-4">
             <livewire:prd.LwShow filtro='{{$produto->id}}' />
 
@@ -41,6 +68,7 @@
 
 
 @section('js')
+@livewireChartsScripts
 <script>
     window.addEventListener('pergunta',function(e){
         const padrao = {
@@ -59,6 +87,11 @@
           Swal.fire(config);
 
       });
+      $(".dial").knob({
+    'readOnly':true,
+    'thickness': '0.2',
+    "skin":"tron",
 
+});
   </script>
 @stop

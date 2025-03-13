@@ -15,8 +15,15 @@ class PrdSaida extends Model
     ];
     public function produto() : HasOne
     {
-        return $this->hasOne(Produto::class, 'id', 'filho_id');
+        return $this->hasOne(Produto::class, 'id', 'produto_id');
     }
+    public function getCardapioAttribute(){
+        if($this->produto->categoria->tipo == 'Cardapio'){
+            return 1 * $this->quantidade;
+        }else{
+            return 0;
+        }
 
+    }
 
 }

@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -32,6 +29,7 @@ Route::prefix('/produto')->name('prd')->group(function () {
         Route::get('/{id}/show/{pai}', 'clone')->name('.clone');
         Route::get('/{id}/conf', 'conf')->name('.conf');
         Route::get('/import', 'import')->name('.import');
+        Route::get('/etiqueta', 'etiqueta')->name('.etiqueta');
 
 
 
@@ -41,6 +39,18 @@ Route::prefix('/pedido')->name('ped')->group(function () {
 
     Route::controller('App\Http\Controllers\Pedido\PedidoController')->group(function () {
         Route::get('/import', 'import')->name('.import');
+        Route::get('/copila', 'copila')->name('.copila');
+        Route::get('', 'home')->name('.home');
+
+
+
+    });
+});
+Route::prefix('/')->name('des')->group(function () {
+
+    Route::controller('App\Http\Controllers\DashboardController')->group(function () {
+        Route::get('', 'index')->name('.index');
+        Route::get('/home', 'index')->name('.index');
 
 
 

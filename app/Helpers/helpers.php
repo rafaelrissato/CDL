@@ -114,14 +114,15 @@ function copilaProduto($id,$quantidade,$ano,$mes)
         $novo->ano = $ano;
         $novo->save();
      }else{
-        foreach($produto->composicao as $composicao)
-        {
             $novo = new PrdSaidaCopilado;
             $novo->produto_id = $id;
             $novo->quantidade = $quantidade;
             $novo->mes = $mes;
             $novo->ano = $ano;
             $novo->save();
+        foreach($produto->composicao as $composicao)
+        {
+
             copilaProduto($composicao->produto->id,($quantidade * $composicao->quantidade),$ano,$mes);
         }
      }

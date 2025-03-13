@@ -452,7 +452,7 @@ return [
     'plugins' => [
 
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -539,6 +539,12 @@ return [
                     'asset' => false,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@11',
                 ],
+
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//kit.fontawesome.com/f1a8f6e1b8.js',
+                ],
             ],
         ],
         'Pace' => [
@@ -553,6 +559,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'Knob' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor\jquery-knob\jquery.knob.min.js',
                 ],
             ],
         ],

@@ -28,8 +28,14 @@
                 </tbody>
             </table>
         </table>
-        <div class="  p-3">
+        <div class="p-3">
         {{ $saidas->links() }}
         </div>
+        <div class="p-4" style="height: 32rem;">
+            <livewire:livewire-line-chart
+                :line-chart-model="$multiLineChartModel"
+            />
+        </div>
     </div>
+
 </div>

@@ -24,6 +24,10 @@ class ProdutoController extends Controller
     {
         return view('produto.create');
     }
+    public function etiqueta()
+    {
+        return view('produto.etiqueta');
+    }
     public function show($id)
     {
         $produto = Produto::find($id);
@@ -60,8 +64,7 @@ class ProdutoController extends Controller
         foreach ($collection[0] as $row)
         {
 
-            //$teste =
-            //echo idcategoria($row[7]).'<br>';
+
             if (is_numeric($row[1])) {
                 $saida = new PrdSaida;
                 $saida->produto_id = idproduto($row[15],$row);

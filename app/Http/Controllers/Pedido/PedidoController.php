@@ -29,12 +29,25 @@ class PedidoController extends Controller
                 $pedido->desconto = $row[8];
                 $pedido->entrega = $row[9];
                 $pedido->valor = $row[10];
-                $pedido->origem = $row[7];
+                if($row[7] == 'iFood'){
+                    $pedido->origem = 'iFood';
+                }else{
+                    $pedido->origem = 'Desktop';
+                }
+
                 $pedido->data = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[1]));;
                 $pedido->save();
 
             }
 
         }
+    }
+    public function copila(){
+        return view('pedido.copila');
+
+    }
+    public function home(){
+        return view('pedido.home');
+
     }
 }
