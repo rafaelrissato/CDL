@@ -12,7 +12,7 @@
 
 
     <div class="row">
-        <div class="text-center">
+        <div class="text-center col-12"> 
 
         <b>BATATA RUSTICA</b><br>
         <b>Lote:</b>1235asd5><br>

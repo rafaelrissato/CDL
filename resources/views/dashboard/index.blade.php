@@ -13,7 +13,9 @@
 
     <div class="row">
         <div class="col-12">
-            <livewire:home.LwTopprodutos />
+            <livewire:home.LwTopprodutos filtro='Smash burger' />
+            <livewire:home.LwTopprodutos filtro='Acompanhamento' />
+            <livewire:home.LwTopprodutos filtro='Refrigerante' />
         </div>
     </div>
 
