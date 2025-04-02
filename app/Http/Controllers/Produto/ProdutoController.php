@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Imports\ProdutoImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 class ProdutoController extends Controller
 {
     public function index($tipo)
@@ -26,7 +27,9 @@ class ProdutoController extends Controller
     }
     public function etiqueta()
     {
-        return view('produto.etiqueta');
+        $customPaper = array(1, 1,  170.079 ,113.386); 
+        $pdf = Pdf::loadView('produto.etiqueta');
+        return $pdf->setPaper($customPaper)->download('invoice.pdf'); 
     }
     public function show($id)
     {
