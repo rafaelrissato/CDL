@@ -27,8 +27,12 @@ class ProdutoController extends Controller
     }
     public function etiqueta()
     {
+        return view('produto.etiqueta');
+    }
+    public function download()
+    {
         $customPaper = array(1, 1,  170.079 ,113.386); 
-        $pdf = Pdf::loadView('produto.etiqueta');
+        $pdf = Pdf::loadView('produto.modelo');
         return $pdf->setPaper($customPaper)->download('invoice.pdf'); 
     }
     public function show($id)
