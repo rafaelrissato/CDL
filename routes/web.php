@@ -30,7 +30,13 @@ Route::prefix('/produto')->name('prd')->group(function () {
         Route::get('/{id}/conf', 'conf')->name('.conf');
         Route::get('/import', 'import')->name('.import');
         Route::get('/etiqueta', 'etiqueta')->name('.etiqueta');
+        Route::prefix('/top')->name('.top')->group(function () {
+            Route::controller('App\Http\Controllers\Produto\ProdutoTopController')->group(function () {
+                Route::get('/', 'index')->name('.home');
+                Route::get('/copila', 'copila')->name('.copila');
 
+            });
+        });
 
 
     });

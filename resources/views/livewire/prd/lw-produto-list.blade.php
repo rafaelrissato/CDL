@@ -24,6 +24,7 @@
 
                 <thead>
                     <tr>
+                        <th>Top</th>
                         <th>Produto</th>
                         <th>Categoria</th>
                         @if($filtro == 'cardapio')
@@ -38,6 +39,7 @@
                 <tbody>
                     @foreach($produtos as $produto)
                         <tr>
+                            <td>{!! $produto->topmes !!}</td>
                             <td>{!! $produto->link !!}</td>
                             <td wire:click="filtros('{{$produto->categoria->id}}')">{{$produto->categoria->name}}</td>
                             @if($filtro == 'cardapio')
@@ -45,7 +47,7 @@
                                 <td>{{real($produto->preco->online)}}</td>
                                 <td>{{real($produto->preco->online - $produto->custo->valor )}}</td>
                                 @endif
-                            <td>{{$produto->created_at->format('d-m-Y')}}</td>
+                            <td>{{$produto->created_at->format('d-m-Y')}}</td> 
                         </tr>
                     @endforeach
                 </tbody>

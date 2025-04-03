@@ -61,5 +61,14 @@ class Produto extends Model
         $valo = $this->composicao->sum('venda');
         return $valo;
     }
+    public function top() : HasMany
+    {
+        return $this->hasMany(PrdTop::class, 'produto_id', 'id');
+    }
+    public function getTopmesAttribute(){
+        $top = $this->top->where('ano', date('Y'))->where('mes', 2)->first();
+        $topant = $this->top->where('ano', date('Y'))->where('mes', 1)->first();
+        return top($topant->categoria, $top->categoria); 
+    }
 
 }

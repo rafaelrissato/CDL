@@ -102,6 +102,30 @@ function idpedido($filtro)
     return $pedido->id;
 
 }
+function top($antigo,$novo)
+{
+    $medall = null;
+     
+    if($antigo !== null AND $novo !== null){
+        if($novo == 1){
+            $medall = '<i class="fas fa-medal text-warning" title="1º Lugar (Ouro)"></i>';
+        }
+        if($novo == 2){
+            $medall = '<i class="fas fa-medal text-secondary" title="1º Lugar (Ouro)"></i>';
+        }
+        if($novo == 3){
+            $medall = '<i class="fas fa-medal text-brown" title="1º Lugar (Ouro)"></i>';
+        }
+        if ($novo < $antigo) {
+            return $medall.'<i class="fas fa-arrow-up text-success" title="Aumentou"></i>';
+        } elseif ($novo > $antigo) {
+            return $medall.'<i class="fas fa-arrow-down text-danger" title="Redução"></i>';
+        } else {
+            return  $medall.'<i class="fas fa-arrow-right text-muted" title="Estável"></i>';
+        }
+    }
+
+}
 function copilaProduto($id,$quantidade,$ano,$mes)
 {
      $produto = Produto::find($id);
