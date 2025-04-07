@@ -1,18 +1,6 @@
 <div>
     <div class="card card-primary card-outline">
-        <div class="card-header">
-            <h3 class="card-title font-style: vertical-align: inherit;">Pedidos</font>
-            </h3>
-            <div class="card-tools">
-                <div class="input-group input-group-sm">
-                    <div class="input-group-append">
-                            <button href="#"  wire:click="teste()" class="btn btn-default">
-                                <i class="fas fa-arrow-left"></i>
-                            </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+         
         <div class="card-body table-responsive p-3">
             <table id="myTable" class="table table-sm table-hover text-nowrap">
                 <thead>

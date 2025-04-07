@@ -2,7 +2,7 @@
 
     <div class="card-header">
         <h3 class="card-title">
-            <font style="vertical-align: inherit;">Configuracao do produto {{$produto->name}}</font>
+            <font style="vertical-align: inherit;">Configuracao</font>
         </h3>
         <div class="card-tools">
             <div class="input-group input-group-sm">
@@ -62,6 +62,21 @@
                     <td>Codigo</td>
                     <td>
                         <x-adminlte-input name='valor' type="text" wire:model="pdv" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Ativo </td>
+                    <td>
+                        <div class="form-check form-check-inline"  >
+                            <input class="form-check-input" type="radio"  value='1' wire:model="ativo" />
+                            <label class="form-check-label" for="inlineRadio1">sim</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" value='0' wire:model="ativo"/>
+                            <label class="form-check-label" for="inlineRadio2">nao</label>
+                          </div>
+                         
                     </td>
 
                 </tr>

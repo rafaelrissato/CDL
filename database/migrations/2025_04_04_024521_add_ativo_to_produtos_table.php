@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('ped_mes', function (Blueprint $table) {
-            $table->int('quantidade')->nullable();
+        Schema::table('produtos', function (Blueprint $table) {
+            $table->boolean('ativo')->default(true)->after('id');
+             
         });
     }
 
@@ -21,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('ped_mes', function (Blueprint $table) {
+        Schema::table('produtos', function (Blueprint $table) {
             //
         });
     }

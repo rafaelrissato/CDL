@@ -33,7 +33,7 @@ class LwTopprodutos extends Component
              });
          })->get();
         $this->topmes = $this->topmes->sortByDesc('quantidade')->take(10);
-        dd($this->topmes);
+         
         $this->toppassado = $this->toppassado->sortByDesc('quantidade')->take(10);
 
 

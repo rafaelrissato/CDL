@@ -1,8 +1,8 @@
 <div>
     <div class="card card-primary card-outline">
          
-        <div class="card-body table-responsive p-0">
-            <table id="produto" class="table table-sm table-hover text-nowrap table-bordered">
+        <div class="table-responsive p-0">
+            <table id="produto" class="table table-sm table-hover text-nowrap table-bordered ">
                 <thead>
                     <tr class="text-center">
                         <th rowspan="2">Produto</th>
@@ -31,7 +31,7 @@
                             <td>{{$key}}</td>
                             @foreach($produto as $pr)
                             
-                            <td>{!! top($val, $pr->geral).' '.$pr->geral !!}
+                            <td>{!! top($val, $pr->geral) !!}
                                 @php
                                     $val = $pr->geral;
                                 @endphp

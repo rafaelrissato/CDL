@@ -25,7 +25,7 @@
                             <div class="card-tools">
                                 <div class="input-group input-group-sm">
                                     <div class="input-group-append">
-                                        <a href="{{ route('ped.upload')}}" class="btn btn-default">
+                                        <a href=" " class="btn btn-default">
                                             <i class="fa-solid fa-upload"></i>
                                         </a>
                                         <a href=" " class="btn btn-default">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-12">
-            <livewire:ped.LwHome   />
+            <livewire:ped.LwUpload   />
         </div>
 
     </div>
@@ -48,13 +48,4 @@
 </div>
 
 @stop
-
-
-@section('js')
-
-<script>
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-  </script>
-@stop
+ 

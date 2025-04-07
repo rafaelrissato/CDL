@@ -17,8 +17,8 @@ return new class extends Migration
                 $table->string('quantidade')->nullable();
                 $table->string('geral')->nullable();
                 $table->string('categoria')->nullable();
-                $table->string('mes');
-                $table->string('ano');
+                $table->int('mes');
+                $table->int('ano');
                 $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
                 $table->timestamps();
         });

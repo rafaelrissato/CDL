@@ -3,7 +3,9 @@
 @section('title', 'Organizaçoes')
 
 @section('content_header')
-    <h1>Produto - {{$tipo}} </h1>
+<div class="row">
+
+</div>
 @stop
 
 @section('content')
@@ -22,3 +24,4 @@
 @stop
 
 
+ 

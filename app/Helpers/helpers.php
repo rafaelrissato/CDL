@@ -108,20 +108,25 @@ function top($antigo,$novo)
      
     if($antigo !== null AND $novo !== null){
         if($novo == 1){
-            $medall = '<i class="fas fa-medal text-warning" title="1º Lugar (Ouro)"></i>';
+            $medall = '<i class="fas fa-medal text-warning" title="1º Lugar"></i>';
         }
         if($novo == 2){
-            $medall = '<i class="fas fa-medal text-secondary" title="1º Lugar (Ouro)"></i>';
+            $medall = '<i class="fas fa-medal text-secondary" title="2º Lugar"></i>';
         }
         if($novo == 3){
-            $medall = '<i class="fas fa-medal text-brown" title="1º Lugar (Ouro)"></i>';
+            $medall = '<i class="fas fa-medal text-brown" title="3º Lugar"></i>';
         }
         if ($novo < $antigo) {
-            return $medall.'<i class="fas fa-arrow-up text-success" title="Aumentou"></i>';
+            $media = '<i class="fas fa-arrow-up text-success" title="Aumentou"></i>';
         } elseif ($novo > $antigo) {
-            return $medall.'<i class="fas fa-arrow-down text-danger" title="Redução"></i>';
+           $media = '<i class="fas fa-arrow-down text-danger" title="Redução"></i>';
         } else {
-            return  $medall.'<i class="fas fa-arrow-right text-muted" title="Estável"></i>';
+            $media = '<i class="fas fa-arrow-right text-muted" title="Estável"></i>';
+        }
+        if($medall){
+            return $medall;
+        }else{
+            return $media;
         }
     }
 
@@ -151,4 +156,12 @@ function copilaProduto($id,$quantidade,$ano,$mes)
         }
      }
 
+}
+function status($status)
+{
+    if($status == 1){
+        return '<span class="badge rounded-pill border border-success"><i class="fas fa-check"></i> Ativo</span> ';
+    }else{
+        return '<span class="badge rounded-pill border border-danger"><i class="fas fa-times"></i> Inativo</span>';
+    }
 }

@@ -16,8 +16,8 @@ return new class extends Migration
                 $table->uuid('id')->primary();
                 $table->string('produto_id');
                 $table->string('quantidade');
-                $table->string('mes');
-                $table->string('ano');
+                $table->int('mes');
+                $table->int('ano');
                 $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
                 $table->timestamps();
 

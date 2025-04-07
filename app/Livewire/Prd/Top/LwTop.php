@@ -14,13 +14,14 @@ class LwTop extends Component
     {
         $this->produtos = DB::table('prd_top')
         ->join('produtos', 'prd_top.produto_id', '=', 'produtos.id') 
-        ->select('prd_top.*', 'produtos.name')
+        ->select('prd_top.*', 'produtos.name', 'produtos.ativo')
         ->orderBy('produtos.name', 'asc')
         ->orderBy('prd_top.ano', 'asc')
         ->orderBy('prd_top.mes', 'asc')
         ->get();
+        $this->produtos = $this->produtos->where('ativo', true);
         $this->produtos = $this->produtos->groupBy('name');
-        
+            
         return view('livewire.prd.top.lw-top');
     }
 }

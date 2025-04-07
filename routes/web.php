@@ -46,6 +46,7 @@ Route::prefix('/pedido')->name('ped')->group(function () {
     Route::controller('App\Http\Controllers\Pedido\PedidoController')->group(function () {
         Route::get('/import', 'import')->name('.import');
         Route::get('/copila', 'copila')->name('.copila');
+        Route::get('/upload', 'upload')->name('.upload');
         Route::get('', 'home')->name('.home');
 
 

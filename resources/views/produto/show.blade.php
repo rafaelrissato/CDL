@@ -19,7 +19,7 @@
 
                     <div class="card-header">
                     <h3 class="card-title">
-                        <font style="vertical-align: inherit;"> {{$produto->name}}</font>
+                        <font style="vertical-align: inherit;"> {{$produto->name}}&nbsp;&nbsp;&nbsp;{!! status($produto->ativo) !!}&nbsp;&nbsp;&nbsp;<span class="badge rounded-pill border">{!! $produto->topmes !!} {!! $produto->top->last()->categoria !!}º</span></font>
                     </h3>
                             <div class="card-tools">
                                 <div class="input-group input-group-sm">

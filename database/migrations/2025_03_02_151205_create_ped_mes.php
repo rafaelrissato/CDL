@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('ped_mes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('mes');
-            $table->string('ano');
+            $table->int('mes');
+            $table->int('ano');
             $table->string('desconto');
             $table->string('entrega');
             $table->string('valor');

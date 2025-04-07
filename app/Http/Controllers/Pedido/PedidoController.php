@@ -50,4 +50,8 @@ class PedidoController extends Controller
         return view('pedido.home');
 
     }
+    public function upload(){ 
+        return view('pedido.upload');
+
+    }
 }
